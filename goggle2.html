@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MS Office Add-on Course Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .girly-gradient {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 25%, #ff9a9e 50%, #fecfef 75%, #fecfef 100%);
+        }
+        .form-shadow {
+            box-shadow: 0 20px 40px rgba(255, 182, 193, 0.3);
+        }
+        .sparkle {
+            animation: sparkle 2s infinite;
+        }
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.1); }
+        }
+        .heart-float {
+            animation: heartFloat 3s ease-in-out infinite;
+        }
+        @keyframes heartFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .pink-glow {
+            box-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
+        }
+    </style>
+</head>
+<body class="girly-gradient min-h-screen py-8 px-4">
+    <div class="max-w-2xl mx-auto">
+        <!-- Floating Hearts Decoration -->
+        <div class="fixed top-10 left-10 text-pink-300 opacity-30 heart-float">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+        </div>
+        <div class="fixed top-32 right-16 text-pink-200 opacity-20 heart-float" style="animation-delay: 1s;">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+        </div>
+        <div class="fixed bottom-20 left-20 text-pink-300 opacity-25 heart-float" style="animation-delay: 2s;">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+        </div>
+
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full mb-4 form-shadow sparkle">
+                <svg class="w-10 h-10 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 11H7v3h2v-3zm4 0h-2v3h2v-3zm4 0h-2v3h2v-3zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                </svg>
+            </div>
+            <h1 class="text-4xl font-bold text-white mb-2 drop-shadow-lg">✨ MS Office Add-on Course ✨</h1>
+            <p class="text-pink-100 text-lg font-medium">Beautiful Learning Experience Registration</p>
+            <div class="flex justify-center mt-4 space-x-2">
+                <span class="text-2xl sparkle">🌸</span>
+                <span class="text-2xl sparkle" style="animation-delay: 0.5s;">💖</span>
+                <span class="text-2xl sparkle" style="animation-delay: 1s;">🌸</span>
+            </div>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="bg-white rounded-3xl form-shadow p-8 border-4 border-pink-100">
+            <form id="registrationForm" class="space-y-8">
+                <!-- Personal Information Section -->
+                <div class="border-b-2 border-pink-100 pb-8">
+                    <h2 class="text-2xl font-bold text-pink-600 mb-6 flex items-center">
+                        <span class="text-2xl mr-3">👤</span>
+                        Personal Information
+                        <span class="text-2xl ml-3">💕</span>
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="firstName" class="block text-sm font-semibold text-pink-700 mb-3">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required 
+                                   class="w-full px-5 py-4 border-2 border-pink-200 rounded-2xl focus:ring-4 focus:ring-pink-300 focus:border-pink-400 transition-all duration-300 bg-pink-50">
+                        </div>
+                        <div>
+                            <label for="lastName" class="block text-sm font-semibold text-pink-700 mb-3">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required 
+                                   class="w-full px-5 py-4 border-2 border-pink-200 rounded-2xl focus:ring-4 focus:ring-pink-300 focus:border-pink-400 transition-all duration-300 bg-pink-50">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-pink-700 mb-3">Email Address *</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="w-full px-5 py-4 border-2 border-pink-200 rounded-2xl focus:ring-4 focus:ring-pink-300 focus:border-pink-400 transition-all duration-300 bg-pink-50">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-semibold text-pink-700 mb-3">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required 
+                                   class="w-full px-5 py-4 border-2 border-pink-200 rounded-2xl focus:ring-4 focus:ring-pink-300 focus:border-pink-400 transition-all duration-300 bg-pink-50">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Selection Section -->
+                <div class="border-b-2 border-pink-100 pb-8">
+                    <h2 class="text-2xl font-bold text-pink-600 mb-6 flex items-center">
+                        <span class="text-2xl mr-3">📚</span>
+                        Course Selection
+                        <span class="text-2xl ml-3">✨</span>
+                    </h2>
+                    
+                    <div class="space-y-4">
+                        <label class="flex items-center p-6 border-2 border-pink-200 rounded-2xl hover:bg-pink-50 hover:border-pink-300 cursor-pointer transition-all duration-300 bg-gradient-to-r from-pink-50 to-rose-50">
+                            <input type="checkbox" name="courses" value="word" class="w-5 h-5 text-pink-500 border-pink-300 rounded-lg focus:ring-pink-400">
+                            <div class="ml-4">
+                                <div class="font-bold text-pink-700 flex items-center">
+                                    <span class="mr-2">📝</span>
+                                    Microsoft Word Advanced
+                                </div>
+                                <div class="text-sm text-pink-600 mt-1">Document formatting, mail merge, and advanced features</div>
+                            </div>
+                        </label>
+                        
+                        <label class="flex items-center p-6 border-2 border-pink-200 rounded-2xl hover:bg-pink-50 hover:border-pink-300 cursor-pointer transition-all duration-300 bg-gradient-to-r from-rose-50 to-pink-50">
+                            <input type="checkbox" name="courses" value="excel" class="w-5 h-5 text-pink-500 border-pink-300 rounded-lg focus:ring-pink-400">
+                            <div class="ml-4">
+                                <div class="font-bold text-pink-700 flex items-center">
+                                    <span class="mr-2">📊</span>
+                                    Microsoft Excel Advanced
+                                </div>
+                                <div class="text-sm text-pink-600 mt-1">Formulas, pivot tables, data analysis, and macros</div>
+                            </div>
+                        </label>
+                        
+                        <label class="flex items-center p-6 border-2 border-pink-200 rounded-2xl hover:bg-pink-50 hover:border-pink-300 cursor-pointer transition-all duration-300 bg-gradient-to-r from-pink-50 to-rose-50">
+                            <input type="checkbox" name="courses" value="powerpoint" class="w-5 h-5 text-pink-500 border-pink-300 rounded-lg focus:ring-pink-400">
+                            <div class="ml-4">
+                                <div class="font-bold text-pink-700 flex items-center">
+                                    <span class="mr-2">🎨</span>
+                                    Microsoft PowerPoint Advanced
+                                </div>
+                                <div class="text-sm text-pink-600 mt-1">Professional presentations, animations, and design</div>
+                            </div>
+                        </label>
+                        
+                        <label class="flex items-center p-6 border-2 border-pink-200 rounded-2xl hover:bg-pink-50 hover:border-pink-300 cursor-pointer transition-all duration-300 bg-gradient-to-r from-rose-50 to-pink-50">
+                            <input type="checkbox" name="courses" value="outlook" class="w-5 h-5 text-pink-500 border-pink-300 rounded-lg focus:ring-pink-400">
+                            <div class="ml-4">
+                                <div class="font-bold text-pink-700 flex items-center">
+                                    <span class="mr-2">💌</span>
+                                    Microsoft Outlook Advanced
+                                </div>
+                                <div class="text-sm text-pink-600 mt-1">Email management, calendar, and productivity features</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Department Selection -->
+                <div class="border-b-2 border-pink-100 pb-8">
+                    <h2 class="text-2xl font-bold text-pink-600 mb-6 flex items-center">
+                        <span class="text-2xl mr-3">🎓</span>
+                        Department
+                        <span class="text-2xl ml-3">📚</span>
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <label class="flex items-center p-4 border-2 border-pink-200 rounded-2xl hover:bg-pink-50 hover:border-pink-300 cursor-pointer transition-all duration-300 bg-gradient-to-r from-pink-50 to-rose-50">
+                            <input type="radio" name="department" value="BBA" class="w-5 h-5 text-pink-500 border-pink-300 focus:ring-pink-400">
+                            <div class="ml-3">
+                                <div class="font-bold text-pink-700">BBA</div>
+                                <div class="text-xs text-pink-600">Bachelor of Business Administration</div>
+                            </div>
+                        </label>
+                        
+                        <label class="flex items-center p-4 border-2 border-pink-200 rounded-2xl hover:bg-pink-50 hover:border-pink-300 cursor-pointer transition-all duration-300 bg-gradient-to-r from-rose-50 to-pink-50">
+                            <input type="radio" name="department" value="B.COM" class="w-5 h-5 text-pink-500 border-pink-300 focus:ring-pink-400">
+                            <div class="ml-3">
+                                <div class="font-bold text-pink-700">B.COM</div>
+                                <div class="text-xs text-pink-600">Bachelor of Commerce</div>
+                            </div>
+                        </label>
+                        
+                        <label class="flex items-center p-4 border-2 border-pink-200 rounded-2xl hover:bg-pink-50 hover:border-pink-300 cursor-pointer transition-all duration-300 bg-gradient-to-r from-pink-50 to-rose-50">
+                            <input type="radio" name="department" value="BCA" class="w-5 h-5 text-pink-500 border-pink-300 focus:ring-pink-400">
+                            <div class="ml-3">
+                                <div class="font-bold text-pink-700">BCA</div>
+                                <div class="text-xs text-pink-600">Bachelor of Computer Applications</div>
+                            </div>
+                        </label>
+                        
+                        <label class="flex items-center p-4 border-2 border-pink-200 rounded-2xl hover:bg-pink-50 hover:border-pink-300 cursor-pointer transition-all duration-300 bg-gradient-to-r from-rose-50 to-pink-50">
+                            <input type="radio" name="department" value="BATS" class="w-5 h-5 text-pink-500 border-pink-300 focus:ring-pink-400">
+                            <div class="ml-3">
+                                <div class="font-bold text-pink-700">BATS</div>
+                                <div class="text-xs text-pink-600">Bachelor in Tibetan Studies</div>
+                            </div>
+                        </label>
+                        
+                        <label class="flex items-center p-4 border-2 border-pink-200 rounded-2xl hover:bg-pink-50 hover:border-pink-300 cursor-pointer transition-all duration-300 bg-gradient-to-r from-pink-50 to-rose-50">
+                            <input type="radio" name="department" value="BA" class="w-5 h-5 text-pink-500 border-pink-300 focus:ring-pink-400">
+                            <div class="ml-3">
+                                <div class="font-bold text-pink-700">BA</div>
+                                <div class="text-xs text-pink-600">Bachelor of Arts</div>
+                            </div>
+                        </label>
+                        
+                        <label class="flex items-center p-4 border-2 border-pink-200 rounded-2xl hover:bg-pink-50 hover:border-pink-300 cursor-pointer transition-all duration-300 bg-gradient-to-r from-rose-50 to-pink-50">
+                            <input type="radio" name="department" value="MATS" class="w-5 h-5 text-pink-500 border-pink-300 focus:ring-pink-400">
+                            <div class="ml-3">
+                                <div class="font-bold text-pink-700">MATS</div>
+                                <div class="text-xs text-pink-600">Master in Tibetan Studies</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Experience Level -->
+                <div class="border-b-2 border-pink-100 pb-8">
+                    <h2 class="text-2xl font-bold text-pink-600 mb-6 flex items-center">
+                        <span class="text-2xl mr-3">⭐</span>
+                        Experience Level
+                        <span class="text-2xl ml-3">🌟</span>
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <label class="flex flex-col items-center p-6 border-2 border-pink-200 rounded-2xl hover:bg-pink-50 hover:border-pink-300 cursor-pointer transition-all duration-300 bg-gradient-to-b from-pink-50 to-rose-50">
+                            <input type="radio" name="experience" value="beginner" class="w-5 h-5 text-pink-500 border-pink-300 focus:ring-pink-400 mb-3">
+                            <div class="text-center">
+                                <div class="text-3xl mb-2">🌱</div>
+                                <div class="font-bold text-pink-700">Beginner</div>
+                                <div class="text-sm text-pink-600 mt-1">New to MS Office</div>
+                            </div>
+                        </label>
+                        
+                        <label class="flex flex-col items-center p-6 border-2 border-pink-200 rounded-2xl hover:bg-pink-50 hover:border-pink-300 cursor-pointer transition-all duration-300 bg-gradient-to-b from-rose-50 to-pink-50">
+                            <input type="radio" name="experience" value="intermediate" class="w-5 h-5 text-pink-500 border-pink-300 focus:ring-pink-400 mb-3">
+                            <div class="text-center">
+                                <div class="text-3xl mb-2">🌸</div>
+                                <div class="font-bold text-pink-700">Intermediate</div>
+                                <div class="text-sm text-pink-600 mt-1">Some experience</div>
+                            </div>
+                        </label>
+                        
+                        <label class="flex flex-col items-center p-6 border-2 border-pink-200 rounded-2xl hover:bg-pink-50 hover:border-pink-300 cursor-pointer transition-all duration-300 bg-gradient-to-b from-pink-50 to-rose-50">
+                            <input type="radio" name="experience" value="advanced" class="w-5 h-5 text-pink-500 border-pink-300 focus:ring-pink-400 mb-3">
+                            <div class="text-center">
+                                <div class="text-3xl mb-2">🌺</div>
+                                <div class="font-bold text-pink-700">Advanced</div>
+                                <div class="text-sm text-pink-600 mt-1">Experienced user</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="pb-8">
+                    <h2 class="text-2xl font-bold text-pink-600 mb-6 flex items-center">
+                        <span class="text-2xl mr-3">📋</span>
+                        Additional Information
+                        <span class="text-2xl ml-3">💖</span>
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <label for="organization" class="block text-sm font-semibold text-pink-700 mb-3">Organization/Company</label>
+                            <input type="text" id="organization" name="organization" 
+                                   class="w-full px-5 py-4 border-2 border-pink-200 rounded-2xl focus:ring-4 focus:ring-pink-300 focus:border-pink-400 transition-all duration-300 bg-pink-50">
+                        </div>
+                        
+                        <div>
+                            <label for="comments" class="block text-sm font-semibold text-pink-700 mb-3">Comments or Special Requirements</label>
+                            <textarea id="comments" name="comments" rows="4" 
+                                      class="w-full px-5 py-4 border-2 border-pink-200 rounded-2xl focus:ring-4 focus:ring-pink-300 focus:border-pink-400 transition-all duration-300 bg-pink-50"
+                                      placeholder="Any specific learning goals or accessibility requirements... 💭"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div class="border-t-2 border-pink-100 pt-8">
+                    <label class="flex items-start">
+                        <input type="checkbox" id="terms" name="terms" required class="w-5 h-5 text-pink-500 border-pink-300 rounded-lg focus:ring-pink-400 mt-1">
+                        <span class="ml-4 text-sm text-pink-700 font-medium">
+                            I agree to the <a href="#" class="text-pink-600 hover:text-pink-800 underline font-bold">terms and conditions</a> 
+                            and understand that this is a demo registration form. ✨ *
+                        </span>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-8">
+                    <button type="submit" 
+                            class="w-full bg-gradient-to-r from-pink-400 via-rose-400 to-pink-500 text-white font-bold py-5 px-8 rounded-2xl hover:from-pink-500 hover:via-rose-500 hover:to-pink-600 transform hover:scale-105 transition-all duration-300 shadow-lg pink-glow text-lg">
+                        🌸 Register for Course 🌸
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Admin Response Dashboard -->
+        <div id="adminDashboard" class="mt-8 bg-white rounded-3xl form-shadow p-8 border-4 border-pink-100" style="display: none;">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-pink-600 flex items-center">
+                    <span class="text-2xl mr-3">📊</span>
+                    Registration Responses Dashboard
+                    <span class="text-2xl ml-3">💼</span>
+                </h2>
+                <button onclick="exportResponses()" class="bg-pink-400 text-white px-4 py-2 rounded-full font-bold hover:bg-pink-500 transition-colors text-sm">
+                    📥 Export Data
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div class="bg-gradient-to-r from-pink-100 to-rose-100 p-4 rounded-2xl text-center">
+                    <div class="text-2xl font-bold text-pink-600" id="totalResponses">0</div>
+                    <div class="text-pink-700 font-medium">Total Responses</div>
+                </div>
+                <div class="bg-gradient-to-r from-rose-100 to-pink-100 p-4 rounded-2xl text-center">
+                    <div class="text-2xl font-bold text-pink-600" id="mostPopularCourse">-</div>
+                    <div class="text-pink-700 font-medium">Most Popular Course</div>
+                </div>
+                <div class="bg-gradient-to-r from-pink-100 to-rose-100 p-4 rounded-2xl text-center">
+                    <div class="text-2xl font-bold text-pink-600" id="mostPopularDept">-</div>
+                    <div class="text-pink-700 font-medium">Most Popular Department</div>
+                </div>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="bg-pink-100">
+                            <th class="border-2 border-pink-200 p-3 text-left text-pink-700 font-bold">#</th>
+                            <th class="border-2 border-pink-200 p-3 text-left text-pink-700 font-bold">Name</th>
+                            <th class="border-2 border-pink-200 p-3 text-left text-pink-700 font-bold">Email</th>
+                            <th class="border-2 border-pink-200 p-3 text-left text-pink-700 font-bold">Department</th>
+                            <th class="border-2 border-pink-200 p-3 text-left text-pink-700 font-bold">Courses</th>
+                            <th class="border-2 border-pink-200 p-3 text-left text-pink-700 font-bold">Experience</th>
+                            <th class="border-2 border-pink-200 p-3 text-left text-pink-700 font-bold">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="responsesTableBody">
+                        <tr>
+                            <td colspan="7" class="border-2 border-pink-200 p-8 text-center text-pink-600">
+                                <div class="text-4xl mb-2">🌸</div>
+                                No responses yet. Share your QR code to start collecting registrations!
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Admin Access Button -->
+        <div class="mt-8 text-center">
+            <button onclick="showAdminLogin()" class="inline-flex items-center px-6 py-3 bg-white bg-opacity-30 rounded-full text-white text-sm font-medium border-2 border-white border-opacity-50 hover:bg-opacity-40 transition-all duration-300">
+                <span class="mr-2">👩‍💼</span>
+                Admin Access
+                <span class="ml-2">🔒</span>
+            </button>
+        </div>
+
+        <!-- Demo Notice -->
+        <div class="mt-4 text-center">
+            <div class="inline-flex items-center px-6 py-3 bg-white bg-opacity-20 rounded-full text-white text-sm font-medium border-2 border-white border-opacity-30">
+                <span class="mr-2">✨</span>
+                Perfect for QR Code Generation
+                <span class="ml-2">💖</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Storage for responses
+        let responses = JSON.parse(localStorage.getItem('msOfficeResponses') || '[]');
+        
+        // Update dashboard on page load
+        updateDashboard();
+        
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const selectedCourses = [];
+            const courseCheckboxes = document.querySelectorAll('input[name="courses"]:checked');
+            courseCheckboxes.forEach(checkbox => {
+                selectedCourses.push(checkbox.value);
+            });
+            
+            // Validate that at least one course is selected
+            if (selectedCourses.length === 0) {
+                showCustomAlert('🌸', 'Oops! Almost there!', 'Please select at least one course to register for. 💕');
+                return;
+            }
+            
+            // Validate department selection
+            const department = formData.get('department');
+            if (!department) {
+                showCustomAlert('🎓', 'Department Required!', 'Please select your department to continue. 📚');
+                return;
+            }
+            
+            // Store the response
+            const responseData = {
+                id: Date.now(),
+                firstName: formData.get('firstName'),
+                lastName: formData.get('lastName'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                department: department,
+                courses: selectedCourses,
+                experience: formData.get('experience'),
+                organization: formData.get('organization') || '',
+                comments: formData.get('comments') || '',
+                timestamp: new Date().toISOString(),
+                date: new Date().toLocaleDateString()
+            };
+            
+            responses.push(responseData);
+            localStorage.setItem('msOfficeResponses', JSON.stringify(responses));
+            updateDashboard();
+            
+            // Show success message
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                ✨ Processing Your Beautiful Registration... ✨
+            `;
+            
+            setTimeout(() => {
+                button.innerHTML = `🌸 Registration Submitted Successfully! 💖`;
+                button.classList.remove('from-pink-400', 'via-rose-400', 'to-pink-500', 'hover:from-pink-500', 'hover:via-rose-500', 'hover:to-pink-600');
+                button.classList.add('from-green-400', 'via-emerald-400', 'to-green-500');
+                
+                // Show girly success message
+                setTimeout(() => {
+                    const firstName = formData.get('firstName');
+                    const lastName = formData.get('lastName');
+                    const email = formData.get('email');
+                    const experience = formData.get('experience');
+                    
+                    showSuccessMessage(firstName, lastName, email, selectedCourses, experience, department);
+                    
+                    // Reset form after showing summary
+                    setTimeout(() => {
+                        this.reset();
+                        button.innerHTML = originalText;
+                        button.classList.remove('from-green-400', 'via-emerald-400', 'to-green-500');
+                        button.classList.add('from-pink-400', 'via-rose-400', 'to-pink-500', 'hover:from-pink-500', 'hover:via-rose-500', 'hover:to-pink-600');
+                    }, 3000);
+                }, 1500);
+            }, 2000);
+        });
+
+        // Custom alert function
+        function showCustomAlert(emoji, title, message) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-3xl shadow-2xl border-4 border-pink-200 z-50';
+            alertDiv.innerHTML = `
+                <div class="text-center">
+                    <div class="text-6xl mb-4">${emoji}</div>
+                    <h3 class="text-xl font-bold text-pink-600 mb-2">${title}</h3>
+                    <p class="text-pink-700 mb-4">${message}</p>
+                    <button onclick="this.parentElement.parentElement.remove()" class="bg-pink-400 text-white px-6 py-2 rounded-full font-bold hover:bg-pink-500 transition-colors">
+                        Got it! ✨
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(alertDiv);
+        }
+
+        // Success message function
+        function showSuccessMessage(firstName, lastName, email, courses, experience, department) {
+            const successDiv = document.createElement('div');
+            successDiv.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-3xl shadow-2xl border-4 border-pink-200 z-50 max-w-md';
+            successDiv.innerHTML = `
+                <div class="text-center">
+                    <div class="text-6xl mb-4">🎉</div>
+                    <h3 class="text-2xl font-bold text-pink-600 mb-4">Yay! Welcome ${firstName}! 💕</h3>
+                    <p class="text-pink-700 mb-4">Your registration for the MS Office Add-on Course has been received! ✨</p>
+                    <div class="bg-pink-50 p-4 rounded-2xl mb-4 text-left">
+                        <p class="text-sm text-pink-600"><strong>Department:</strong> ${department}</p>
+                        <p class="text-sm text-pink-600"><strong>Selected courses:</strong> ${courses.join(', ')}</p>
+                        <p class="text-sm text-pink-600"><strong>Experience level:</strong> ${experience}</p>
+                        <p class="text-sm text-pink-600"><strong>Email:</strong> ${email}</p>
+                    </div>
+                    <p class="text-pink-600 text-sm mb-4">A confirmation email will be sent to you soon! 💌</p>
+                    <button onclick="this.parentElement.parentElement.remove()" class="bg-pink-400 text-white px-8 py-3 rounded-full font-bold hover:bg-pink-500 transition-colors">
+                        Perfect! 🌸
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(successDiv);
+        }
+
+        // Admin login function
+        function showAdminLogin() {
+            const loginDiv = document.createElement('div');
+            loginDiv.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-3xl shadow-2xl border-4 border-pink-200 z-50 max-w-md';
+            loginDiv.innerHTML = `
+                <div class="text-center">
+                    <div class="text-6xl mb-4">🔐</div>
+                    <h3 class="text-2xl font-bold text-pink-600 mb-4">Admin Access Required</h3>
+                    <p class="text-pink-700 mb-6">Please enter the admin password to view the dashboard:</p>
+                    <input type="password" id="adminPassword" placeholder="Enter password..." 
+                           class="w-full px-4 py-3 border-2 border-pink-200 rounded-2xl focus:ring-4 focus:ring-pink-300 focus:border-pink-400 transition-all duration-300 bg-pink-50 mb-4">
+                    <div class="flex space-x-3">
+                        <button onclick="checkAdminPassword()" class="flex-1 bg-pink-400 text-white px-6 py-3 rounded-full font-bold hover:bg-pink-500 transition-colors">
+                            🔓 Access Dashboard
+                        </button>
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()" class="flex-1 bg-gray-300 text-gray-700 px-6 py-3 rounded-full font-bold hover:bg-gray-400 transition-colors">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(loginDiv);
+            
+            // Focus on password input
+            setTimeout(() => {
+                document.getElementById('adminPassword').focus();
+            }, 100);
+            
+            // Allow Enter key to submit
+            document.getElementById('adminPassword').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkAdminPassword();
+                }
+            });
+        }
+
+        function checkAdminPassword() {
+            const password = document.getElementById('adminPassword').value;
+            const correctPassword = 'admin123'; // You can change this password
+            
+            if (password === correctPassword) {
+                // Remove login modal
+                document.querySelector('.fixed').remove();
+                // Show dashboard
+                toggleAdminDashboard();
+                showCustomAlert('✅', 'Access Granted!', 'Welcome to the admin dashboard! 💖');
+            } else {
+                showCustomAlert('❌', 'Access Denied!', 'Incorrect password. Please try again. 🔒');
+                document.getElementById('adminPassword').value = '';
+                document.getElementById('adminPassword').focus();
+            }
+        }
+
+        // Dashboard functions
+        function toggleAdminDashboard() {
+            const dashboard = document.getElementById('adminDashboard');
+            if (dashboard.style.display === 'none') {
+                dashboard.style.display = 'block';
+                dashboard.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                dashboard.style.display = 'none';
+            }
+        }
+
+        function updateDashboard() {
+            document.getElementById('totalResponses').textContent = responses.length;
+            
+            if (responses.length > 0) {
+                // Calculate most popular course
+                const courseCounts = {};
+                responses.forEach(response => {
+                    response.courses.forEach(course => {
+                        courseCounts[course] = (courseCounts[course] || 0) + 1;
+                    });
+                });
+                const mostPopularCourse = Object.keys(courseCounts).reduce((a, b) => courseCounts[a] > courseCounts[b] ? a : b, '');
+                document.getElementById('mostPopularCourse').textContent = mostPopularCourse || '-';
+                
+                // Calculate most popular department
+                const deptCounts = {};
+                responses.forEach(response => {
+                    deptCounts[response.department] = (deptCounts[response.department] || 0) + 1;
+                });
+                const mostPopularDept = Object.keys(deptCounts).reduce((a, b) => deptCounts[a] > deptCounts[b] ? a : b, '');
+                document.getElementById('mostPopularDept').textContent = mostPopularDept || '-';
+                
+                // Update table
+                const tbody = document.getElementById('responsesTableBody');
+                tbody.innerHTML = responses.map((response, index) => `
+                    <tr class="hover:bg-pink-50">
+                        <td class="border-2 border-pink-200 p-3 text-pink-700">${index + 1}</td>
+                        <td class="border-2 border-pink-200 p-3 text-pink-700">${response.firstName} ${response.lastName}</td>
+                        <td class="border-2 border-pink-200 p-3 text-pink-700">${response.email}</td>
+                        <td class="border-2 border-pink-200 p-3 text-pink-700">${response.department}</td>
+                        <td class="border-2 border-pink-200 p-3 text-pink-700">${response.courses.join(', ')}</td>
+                        <td class="border-2 border-pink-200 p-3 text-pink-700">${response.experience}</td>
+                        <td class="border-2 border-pink-200 p-3 text-pink-700">${response.date}</td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        function exportResponses() {
+            if (responses.length === 0) {
+                showCustomAlert('📊', 'No Data to Export', 'There are no responses to export yet. 💕');
+                return;
+            }
+            
+            const csvContent = [
+                ['Name', 'Email', 'Phone', 'Department', 'Courses', 'Experience', 'Organization', 'Comments', 'Date'],
+                ...responses.map(r => [
+                    `${r.firstName} ${r.lastName}`,
+                    r.email,
+                    r.phone,
+                    r.department,
+                    r.courses.join('; '),
+                    r.experience,
+                    r.organization,
+                    r.comments,
+                    r.date
+                ])
+            ].map(row => row.map(field => `"${field}"`).join(',')).join('\n');
+            
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ms-office-registrations-${new Date().toISOString().split('T')[0]}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            showCustomAlert('📥', 'Export Successful!', 'Your registration data has been downloaded as a CSV file! 🎉');
+        }
+
+        // Add smooth focus animations with girly effects
+        const inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.classList.add('transform', 'scale-105', 'pink-glow');
+            });
+            
+            input.addEventListener('blur', function() {
+                this.classList.remove('transform', 'scale-105', 'pink-glow');
+            });
+        });
+
+        // Add sparkle effect on hover for checkboxes and radio buttons
+        const checkboxes = document.querySelectorAll('input[type="checkbox"], input[type="radio"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.parentElement.addEventListener('mouseenter', function() {
+                this.classList.add('transform', 'scale-105');
+            });
+            
+            checkbox.parentElement.addEventListener('mouseleave', function() {
+                this.classList.remove('transform', 'scale-105');
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9676622857b9851c',t:'MTc1Mzg5NDUyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
